@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160527024F8E00FFED80 /* ActionButton.swift */; };
+		56D6160927025E7200FFED80 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160827025E7200FFED80 /* BaseView.swift */; };
+		56D6160C270262CA00FFED80 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160B270262CA00FFED80 /* FontManager.swift */; };
+		56D6160F270262E700FFED80 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160E270262E700FFED80 /* GenericValueProtocol.swift */; };
+		56D61611270266FF00FFED80 /* ActionButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D61610270266FF00FFED80 /* ActionButtonData.swift */; };
+		56D61613270269C300FFED80 /* ActionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D61612270269C300FFED80 /* ActionButtonTheme.swift */; };
+		56D61615270269EE00FFED80 /* ActionButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D61614270269EE00FFED80 /* ActionButtonType.swift */; };
 		56F2642C27024A4A0038BC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2642B27024A4A0038BC04 /* AppDelegate.swift */; };
 		56F2642E27024A4A0038BC04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2642D27024A4A0038BC04 /* SceneDelegate.swift */; };
 		56F2643027024A4A0038BC04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2642F27024A4A0038BC04 /* ViewController.swift */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		56D6160527024F8E00FFED80 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		56D6160827025E7200FFED80 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		56D6160B270262CA00FFED80 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		56D6160E270262E700FFED80 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
+		56D61610270266FF00FFED80 /* ActionButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonData.swift; sourceTree = "<group>"; };
+		56D61612270269C300FFED80 /* ActionButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonTheme.swift; sourceTree = "<group>"; };
+		56D61614270269EE00FFED80 /* ActionButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonType.swift; sourceTree = "<group>"; };
 		56F2642827024A4A0038BC04 /* HW2_EgeSeckin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW2_EgeSeckin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F2642B27024A4A0038BC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F2642D27024A4A0038BC04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,8 +102,28 @@
 			isa = PBXGroup;
 			children = (
 				56D6160527024F8E00FFED80 /* ActionButton.swift */,
+				56D61610270266FF00FFED80 /* ActionButtonData.swift */,
+				56D61614270269EE00FFED80 /* ActionButtonType.swift */,
+				56D61612270269C300FFED80 /* ActionButtonTheme.swift */,
 			);
 			path = ActionButtonComponent;
+			sourceTree = "<group>";
+		};
+		56D6160727025E5C00FFED80 /* BaseComponent */ = {
+			isa = PBXGroup;
+			children = (
+				56D6160827025E7200FFED80 /* BaseView.swift */,
+			);
+			path = BaseComponent;
+			sourceTree = "<group>";
+		};
+		56D6160A270262B400FFED80 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				56D6160B270262CA00FFED80 /* FontManager.swift */,
+				56D6160E270262E700FFED80 /* GenericValueProtocol.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		56F2641F27024A4A0038BC04 = {
@@ -117,6 +149,8 @@
 		56F2642A27024A4A0038BC04 /* HW2_EgeSeckin */ = {
 			isa = PBXGroup;
 			children = (
+				56D6160A270262B400FFED80 /* Utils */,
+				56D6160727025E5C00FFED80 /* BaseComponent */,
 				56D6160327024F6000FFED80 /* Components */,
 				56F2642B27024A4A0038BC04 /* AppDelegate.swift */,
 				56F2642D27024A4A0038BC04 /* SceneDelegate.swift */,
@@ -279,8 +313,14 @@
 			files = (
 				56F2643027024A4A0038BC04 /* ViewController.swift in Sources */,
 				56F2642C27024A4A0038BC04 /* AppDelegate.swift in Sources */,
+				56D6160927025E7200FFED80 /* BaseView.swift in Sources */,
+				56D61615270269EE00FFED80 /* ActionButtonType.swift in Sources */,
 				56F2642E27024A4A0038BC04 /* SceneDelegate.swift in Sources */,
+				56D61613270269C300FFED80 /* ActionButtonTheme.swift in Sources */,
+				56D6160C270262CA00FFED80 /* FontManager.swift in Sources */,
+				56D61611270266FF00FFED80 /* ActionButtonData.swift in Sources */,
 				56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */,
+				56D6160F270262E700FFED80 /* GenericValueProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

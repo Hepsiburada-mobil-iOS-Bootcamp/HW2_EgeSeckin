@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class ActionButton: UIView{ //Creating Action button blueprint
+class ActionButton: BaseView{ //Creating Action button blueprint
+    
+    private let data: ActionButtonData
     
     private lazy var containerView: UIView = {
         //container view for the action button
@@ -21,17 +23,35 @@ class ActionButton: UIView{ //Creating Action button blueprint
         return temp
     }()
     
-    override init(frame: CGRect) {
+    private lazy var infoTitle: UILabel = {
+        
+        let temp = UILabel()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.font = FontManager.bold(14).value
+        temp.text = "OK"
+        temp.contentMode = .center
+        temp.textAlignment = .center
+        
+        return temp
+    }()
+    init(frame: CGRect, data: ActionButtonData) {
+        self.data = data
         super.init(frame: frame)
-        addContainerView()
     }
     
-    required init?(coder: NSCoder){
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func addMajorViewComponents() {
+        super.addMajorViewComponents()
+        addContainerView()
+        loadData()
     }
     
     private func addContainerView(){
         addSubview(containerView)
+        containerView.addSubview(infoTitle)
         
         NSLayoutConstraint.activate([
         
@@ -39,8 +59,24 @@ class ActionButton: UIView{ //Creating Action button blueprint
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            infoTitle.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            infoTitle.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
         
         ]) //active constraints in an array
     }
-    
+    func loadData() {
+        infoTitle.text = data.text
+        
+        switch data.buttonType{
+        case .filled(let theme):
+            containerView.backgroundColor = theme.value
+            infoTitle.textColor = .white
+        case .outlined(let theme):
+            containerView.layer.borderWidth = 1
+            containerView.layer.borderColor = theme.value.cgColor
+            containerView.backgroundColor = .white
+            infoTitle.textColor = theme.value
+        }
+    }
 }
