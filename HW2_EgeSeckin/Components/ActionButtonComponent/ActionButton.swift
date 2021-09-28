@@ -9,7 +9,18 @@ import Foundation
 import UIKit
 
 class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button blueprint
+    
+    private lazy var shadowContainer: UIView = { //Button shadow
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false // in order to prevent auto layout
+        temp.layer.shadowColor = UIColor.black.cgColor
+        temp.layer.shadowOffset = CGSize(width: 6, height: 2)
+        temp.layer.shadowRadius = 4
+        temp.layer.shadowOpacity = 0.4
+        temp.layer.cornerRadius = 6
+        return temp
         
+    }()
     private lazy var containerView: UIView = {
         //container view for the action button
         
@@ -25,7 +36,7 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.font = FontManager.bold(14).value
-        temp.text = " "
+        temp.text = "OK"
         temp.contentMode = .center
         temp.textAlignment = .center
         
@@ -38,15 +49,21 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
     }
     
     private func addContainerView(){
-        addSubview(containerView)
+        addSubview(shadowContainer)
+        shadowContainer.addSubview(containerView)
         containerView.addSubview(infoTitle)
         
         NSLayoutConstraint.activate([
+            
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shadowContainer.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
         
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerView.topAnchor.constraint(equalTo: topAnchor),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: shadowContainer.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: shadowContainer.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainer.bottomAnchor),
             
             infoTitle.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             infoTitle.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
