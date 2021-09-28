@@ -17,10 +17,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         addActionButton()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            self.actionButton.setData(by: ActionButtonData(text: "OK", buttonType: .filled(.smooth)))
+        }
+        
     }
 
     private func addActionButton() {
-        actionButton = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttonType: .filled(.smooth)))
+        actionButton = ActionButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(actionButton)

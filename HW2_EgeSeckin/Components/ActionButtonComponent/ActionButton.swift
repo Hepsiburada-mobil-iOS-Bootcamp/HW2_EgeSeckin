@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-class ActionButton: BaseView{ //Creating Action button blueprint
-    
-    private let data: ActionButtonData
-    
+class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button blueprint
+        
     private lazy var containerView: UIView = {
         //container view for the action button
         
@@ -19,7 +17,6 @@ class ActionButton: BaseView{ //Creating Action button blueprint
         temp.translatesAutoresizingMaskIntoConstraints = false // in order to prevent auto layout
         temp.layer.cornerRadius = 6 // corner roundness of the button
         temp.clipsToBounds = true
-        temp.backgroundColor = .red
         return temp
     }()
     
@@ -28,25 +25,16 @@ class ActionButton: BaseView{ //Creating Action button blueprint
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.font = FontManager.bold(14).value
-        temp.text = "OK"
+        temp.text = " "
         temp.contentMode = .center
         temp.textAlignment = .center
         
         return temp
     }()
-    init(frame: CGRect, data: ActionButtonData) {
-        self.data = data
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
         addContainerView()
-        loadData()
     }
     
     private func addContainerView(){
@@ -65,7 +53,10 @@ class ActionButton: BaseView{ //Creating Action button blueprint
         
         ]) //active constraints in an array
     }
-    func loadData() {
+    
+    override func loadDataView() {
+        super.loadDataView()
+        guard let data = returnData() else { return }
         infoTitle.text = data.text
         
         switch data.buttonType{
