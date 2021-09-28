@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias BooleanCompletionBlock = (Bool) -> Void
+
 class ViewController: UIViewController {
     
     private var actionButton: ActionButton!
@@ -19,14 +21,26 @@ class ViewController: UIViewController {
         addActionButton()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            self.actionButton.setData(by: ActionButtonData(text: "OK", buttonType: .filled(.smooth)))
+            
+            let actionButonData = ActionButtonData(text: "OK", buttonType: .filled(.smooth)).setActionButtonListener(by: self.actionButtonHandler)
+            self.actionButton.setData(by: actionButonData)
         }
         
+        test(completion: testHandler)
+        
+    }
+    lazy var testHandler: BooleanCompletionBlock = { value in
+        print("value : \(value)")
+    }
+    lazy var actionButtonHandler: VoidCompletionBlock = {
+        print("Action Button Pressed!")
     }
 
     private func addActionButton() {
         actionButton = ActionButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        actionButton.delegate = self
         
         view.addSubview(actionButton)
         
@@ -40,21 +54,20 @@ class ViewController: UIViewController {
         
         ])
         
-        actionButton2 = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttonType: .outlined(.smooth)))
-        actionButton2.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(actionButton2)
-        
-        NSLayoutConstraint.activate([
-        
-            actionButton2.heightAnchor.constraint(equalToConstant: 50),
-            actionButton2.widthAnchor.constraint(equalToConstant: 120),
-            
-            actionButton2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            actionButton2.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
-        
-        ])
     }
 
+    func test(completion: @escaping (Bool) -> Void){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            completion(true)
+        }
+        
+    }
 }
 
+extension ViewController: ActionButtonDelegate{
+    
+    func actionButtonPressed() {
+        //print("ViewController is informed!")
+    }
+    
+}

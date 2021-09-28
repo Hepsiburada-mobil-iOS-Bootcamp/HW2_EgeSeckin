@@ -5,10 +5,14 @@
 //  Created by Ege Seçkin on 27.09.2021.
 //
 
-import Foundation
 import UIKit
 
+protocol ActionButtonDelegate: AnyObject{
+    func actionButtonPressed()
+}
+
 class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button blueprint
+    weak var delegate: ActionButtonDelegate?
     
     private lazy var shadowContainer: UIView = { //Button shadow
         let temp = UIView()
@@ -92,6 +96,12 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
             infoTitle.textColor = theme.value
         }
     }
+    
+    private func pressedButtonAction() {
+        guard let data = returnData() else { return }
+        data.actionButtonListener?()
+        
+    }
 }
 
 
@@ -103,7 +113,14 @@ extension ActionButton: UIGestureRecognizerDelegate {
         addGestureRecognizer(tap)
     }
     @objc fileprivate func buttonTapped(_ sender: UITapGestureRecognizer) {
-        print("Dügmeye Basıldı!")
+        isUserInteractionEnabled = false
+        startTappedAnimation{ finish in
+                             if finish {
+                                self.isUserInteractionEnabled = true
+                                self.delegate?.actionButtonPressed()
+                                self.pressedButtonAction()
+                            }
+        }
     }
 }
 
