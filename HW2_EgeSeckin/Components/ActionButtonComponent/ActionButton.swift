@@ -36,7 +36,7 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.font = FontManager.bold(14).value
-        temp.text = "OK"
+        temp.text = " "
         temp.contentMode = .center
         temp.textAlignment = .center
         
@@ -46,6 +46,11 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
         addContainerView()
+    }
+    
+    override func setupViewConfigurations() {
+        super.setupViewConfigurations()
+        addTapGesture()
     }
     
     private func addContainerView(){
@@ -87,4 +92,21 @@ class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button 
             infoTitle.textColor = theme.value
         }
     }
+}
+
+
+// MARK: - UIGestureRecognizerDelegate
+extension ActionButton: UIGestureRecognizerDelegate {
+    private func addTapGesture(){
+        let tap = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
+        tap.delegate = self
+        addGestureRecognizer(tap)
+    }
+    @objc fileprivate func buttonTapped(_ sender: UITapGestureRecognizer) {
+        print("Dügmeye Basıldı!")
+    }
+}
+
+fileprivate extension Selector {
+    static let buttonTappedSelector = #selector(ActionButton.buttonTapped)
 }
