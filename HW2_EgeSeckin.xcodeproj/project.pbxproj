@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		562651422703095A00EE14A2 /* GenericBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562651412703095A00EE14A2 /* GenericBaseView.swift */; };
 		562651462703282B00EE14A2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562651452703282B00EE14A2 /* UIView+Extensions.swift */; };
+		5626514927035DFA00EE14A2 /* ActionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626514827035DFA00EE14A2 /* ActionModule.swift */; };
+		5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626514A27035E3400EE14A2 /* ActionModuleData.swift */; };
 		56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160527024F8E00FFED80 /* ActionButton.swift */; };
 		56D6160927025E7200FFED80 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160827025E7200FFED80 /* BaseView.swift */; };
 		56D6160C270262CA00FFED80 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160B270262CA00FFED80 /* FontManager.swift */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		562651412703095A00EE14A2 /* GenericBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBaseView.swift; sourceTree = "<group>"; };
 		562651452703282B00EE14A2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		5626514827035DFA00EE14A2 /* ActionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModule.swift; sourceTree = "<group>"; };
+		5626514A27035E3400EE14A2 /* ActionModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModuleData.swift; sourceTree = "<group>"; };
 		56D6160527024F8E00FFED80 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		56D6160827025E7200FFED80 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		56D6160B270262CA00FFED80 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -110,9 +114,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5626514727035DDA00EE14A2 /* ActionModuleComponent */ = {
+			isa = PBXGroup;
+			children = (
+				5626514827035DFA00EE14A2 /* ActionModule.swift */,
+				5626514A27035E3400EE14A2 /* ActionModuleData.swift */,
+			);
+			path = ActionModuleComponent;
+			sourceTree = "<group>";
+		};
 		56D6160327024F6000FFED80 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5626514727035DDA00EE14A2 /* ActionModuleComponent */,
 				56D6160427024F7000FFED80 /* ActionButtonComponent */,
 			);
 			path = Components;
@@ -336,9 +350,11 @@
 				56F2643027024A4A0038BC04 /* ViewController.swift in Sources */,
 				56F2642C27024A4A0038BC04 /* AppDelegate.swift in Sources */,
 				56D6160927025E7200FFED80 /* BaseView.swift in Sources */,
+				5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */,
 				56D61615270269EE00FFED80 /* ActionButtonType.swift in Sources */,
 				56F2642E27024A4A0038BC04 /* SceneDelegate.swift in Sources */,
 				562651422703095A00EE14A2 /* GenericBaseView.swift in Sources */,
+				5626514927035DFA00EE14A2 /* ActionModule.swift in Sources */,
 				562651462703282B00EE14A2 /* UIView+Extensions.swift in Sources */,
 				56D61613270269C300FFED80 /* ActionButtonTheme.swift in Sources */,
 				56D6160C270262CA00FFED80 /* FontManager.swift in Sources */,

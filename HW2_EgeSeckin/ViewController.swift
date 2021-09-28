@@ -12,13 +12,15 @@ typealias BooleanCompletionBlock = (Bool) -> Void
 class ViewController: UIViewController {
     
     private var actionButton: ActionButton!
-    private var actionButton2: ActionButton!
+    private var actionModule: ActionModule!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         addActionButton()
+        addActionModule()
+        setupActionModuleData()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             
@@ -26,7 +28,6 @@ class ViewController: UIViewController {
             self.actionButton.setData(by: actionButonData)
         }
         
-        test(completion: testHandler)
         
     }
     lazy var testHandler: BooleanCompletionBlock = { value in
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
         actionButton = ActionButton()
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
-        actionButton.delegate = self
+        //actionButton.delegate = self
         
         view.addSubview(actionButton)
         
@@ -54,6 +55,31 @@ class ViewController: UIViewController {
         
         ])
         
+    }
+
+    private func addActionModule() {
+        actionModule = ActionModule()
+        actionModule.translatesAutoresizingMaskIntoConstraints = false
+                
+        view.addSubview(actionModule)
+        
+        NSLayoutConstraint.activate([
+            
+            actionModule.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            actionModule.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200),
+        
+        ])
+        
+    }
+    
+    private func setupActionModuleData(){
+        let negative = ActionButtonData(text: "Not Now", buttonType: .outlined(.smooth)).setActionButtonListener{
+            print("Negative Fired")
+        }
+        let positive = ActionButtonData(text: "OK", buttonType: .filled(.smooth)).setActionButtonListener{
+            print("Positive Fired")
+        }
+        actionModule.setData(by: ActionModuleData(negativeButtonData: negative, positiveButtonData: positive))
     }
 
     func test(completion: @escaping (Bool) -> Void){
