@@ -13,8 +13,11 @@
 		5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626514A27035E3400EE14A2 /* ActionModuleData.swift */; };
 		568FAA282704867B00D49F01 /* LabelPackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA272704867B00D49F01 /* LabelPackComponent.swift */; };
 		568FAA2A2704869300D49F01 /* LabelPackComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA292704869300D49F01 /* LabelPackComponentData.swift */; };
-		568FAA2D2704AAA000D49F01 /* PermissionMainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA2C2704AAA000D49F01 /* PermissionMainComponent.swift */; };
-		568FAA2F2704AD3C00D49F01 /* PermissionMainComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA2E2704AD3C00D49F01 /* PermissionMainComponentData.swift */; };
+		568FAA2D2704AAA000D49F01 /* PermissionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA2C2704AAA000D49F01 /* PermissionMainView.swift */; };
+		568FAA2F2704AD3C00D49F01 /* PermissionMainViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA2E2704AD3C00D49F01 /* PermissionMainViewData.swift */; };
+		568FAA342704DAC000D49F01 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA332704DAC000D49F01 /* PermissionViewController.swift */; };
+		568FAA382704DD5700D49F01 /* Permissionimages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA372704DD5700D49F01 /* Permissionimages.swift */; };
+		568FAA3A2704F6EA00D49F01 /* ActionModuleVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA392704F6EA00D49F01 /* ActionModuleVertical.swift */; };
 		56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160527024F8E00FFED80 /* ActionButton.swift */; };
 		56D6160927025E7200FFED80 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160827025E7200FFED80 /* BaseView.swift */; };
 		56D6160C270262CA00FFED80 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160B270262CA00FFED80 /* FontManager.swift */; };
@@ -57,8 +60,11 @@
 		5626514A27035E3400EE14A2 /* ActionModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModuleData.swift; sourceTree = "<group>"; };
 		568FAA272704867B00D49F01 /* LabelPackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponent.swift; sourceTree = "<group>"; };
 		568FAA292704869300D49F01 /* LabelPackComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponentData.swift; sourceTree = "<group>"; };
-		568FAA2C2704AAA000D49F01 /* PermissionMainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionMainComponent.swift; sourceTree = "<group>"; };
-		568FAA2E2704AD3C00D49F01 /* PermissionMainComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionMainComponentData.swift; sourceTree = "<group>"; };
+		568FAA2C2704AAA000D49F01 /* PermissionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionMainView.swift; sourceTree = "<group>"; };
+		568FAA2E2704AD3C00D49F01 /* PermissionMainViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionMainViewData.swift; sourceTree = "<group>"; };
+		568FAA332704DAC000D49F01 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		568FAA372704DD5700D49F01 /* Permissionimages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissionimages.swift; sourceTree = "<group>"; };
+		568FAA392704F6EA00D49F01 /* ActionModuleVertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModuleVertical.swift; sourceTree = "<group>"; };
 		56D6160527024F8E00FFED80 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		56D6160827025E7200FFED80 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		56D6160B270262CA00FFED80 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 			children = (
 				5626514827035DFA00EE14A2 /* ActionModule.swift */,
 				5626514A27035E3400EE14A2 /* ActionModuleData.swift */,
+				568FAA392704F6EA00D49F01 /* ActionModuleVertical.swift */,
 			);
 			path = ActionModuleComponent;
 			sourceTree = "<group>";
@@ -143,10 +150,51 @@
 		568FAA2B2704AA5C00D49F01 /* PermissionMainComponent */ = {
 			isa = PBXGroup;
 			children = (
-				568FAA2C2704AAA000D49F01 /* PermissionMainComponent.swift */,
-				568FAA2E2704AD3C00D49F01 /* PermissionMainComponentData.swift */,
+				568FAA2C2704AAA000D49F01 /* PermissionMainView.swift */,
+				568FAA2E2704AD3C00D49F01 /* PermissionMainViewData.swift */,
 			);
 			path = PermissionMainComponent;
+			sourceTree = "<group>";
+		};
+		568FAA302704DA7600D49F01 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				568FAA322704DA8C00D49F01 /* Permission */,
+				568FAA312704DA7F00D49F01 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		568FAA312704DA7F00D49F01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				56F2642F27024A4A0038BC04 /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		568FAA322704DA8C00D49F01 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				568FAA332704DAC000D49F01 /* PermissionViewController.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		568FAA352704DD2900D49F01 /* AssetHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				568FAA362704DD3500D49F01 /* Permissionimages */,
+			);
+			path = AssetHelpers;
+			sourceTree = "<group>";
+		};
+		568FAA362704DD3500D49F01 /* Permissionimages */ = {
+			isa = PBXGroup;
+			children = (
+				568FAA372704DD5700D49F01 /* Permissionimages.swift */,
+			);
+			path = Permissionimages;
 			sourceTree = "<group>";
 		};
 		56D6160327024F6000FFED80 /* Components */ = {
@@ -184,6 +232,7 @@
 		56D6160A270262B400FFED80 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				568FAA352704DD2900D49F01 /* AssetHelpers */,
 				562651442703281800EE14A2 /* Extensions */,
 				562651432703276700EE14A2 /* FontManagers */,
 			);
@@ -213,12 +262,12 @@
 		56F2642A27024A4A0038BC04 /* HW2_EgeSeckin */ = {
 			isa = PBXGroup;
 			children = (
+				568FAA302704DA7600D49F01 /* Scenes */,
 				56D6160A270262B400FFED80 /* Utilities */,
 				56D6160727025E5C00FFED80 /* BaseComponents */,
 				56D6160327024F6000FFED80 /* Components */,
 				56F2642B27024A4A0038BC04 /* AppDelegate.swift */,
 				56F2642D27024A4A0038BC04 /* SceneDelegate.swift */,
-				56F2642F27024A4A0038BC04 /* ViewController.swift */,
 				56F2643127024A4A0038BC04 /* Main.storyboard */,
 				56F2643427024A4B0038BC04 /* Assets.xcassets */,
 				56F2643627024A4B0038BC04 /* LaunchScreen.storyboard */,
@@ -378,18 +427,21 @@
 				56F2643027024A4A0038BC04 /* ViewController.swift in Sources */,
 				56F2642C27024A4A0038BC04 /* AppDelegate.swift in Sources */,
 				56D6160927025E7200FFED80 /* BaseView.swift in Sources */,
+				568FAA342704DAC000D49F01 /* PermissionViewController.swift in Sources */,
 				568FAA2A2704869300D49F01 /* LabelPackComponentData.swift in Sources */,
 				5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */,
 				56D61615270269EE00FFED80 /* ActionButtonType.swift in Sources */,
 				56F2642E27024A4A0038BC04 /* SceneDelegate.swift in Sources */,
-				568FAA2F2704AD3C00D49F01 /* PermissionMainComponentData.swift in Sources */,
+				568FAA2F2704AD3C00D49F01 /* PermissionMainViewData.swift in Sources */,
 				568FAA282704867B00D49F01 /* LabelPackComponent.swift in Sources */,
 				562651422703095A00EE14A2 /* GenericBaseView.swift in Sources */,
-				568FAA2D2704AAA000D49F01 /* PermissionMainComponent.swift in Sources */,
+				568FAA2D2704AAA000D49F01 /* PermissionMainView.swift in Sources */,
 				5626514927035DFA00EE14A2 /* ActionModule.swift in Sources */,
 				562651462703282B00EE14A2 /* UIView+Extensions.swift in Sources */,
 				56D61613270269C300FFED80 /* ActionButtonTheme.swift in Sources */,
+				568FAA3A2704F6EA00D49F01 /* ActionModuleVertical.swift in Sources */,
 				56D6160C270262CA00FFED80 /* FontManager.swift in Sources */,
+				568FAA382704DD5700D49F01 /* Permissionimages.swift in Sources */,
 				56D61611270266FF00FFED80 /* ActionButtonData.swift in Sources */,
 				56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */,
 				56D6160F270262E700FFED80 /* GenericValueProtocol.swift in Sources */,

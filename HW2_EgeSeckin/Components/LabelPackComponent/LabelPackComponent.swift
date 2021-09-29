@@ -63,7 +63,7 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
     
     override func loadDataView() {
         super.loadDataView()
-        guard let data = returnData() else { fatalError("Please provide data!")}
+        guard let data = returnData() else { return }
         titleLabel.text = data.title
         subTitleLabel.text = data.subTitle
     }

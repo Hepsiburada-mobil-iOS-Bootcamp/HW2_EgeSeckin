@@ -1,5 +1,5 @@
 //
-//  PermissionMainComponent.swift
+//  PermissionMainView.swift
 //  HW2_EgeSeckin
 //
 //  Created by Ege Seçkin on 29.09.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PermissionMainComponent: GenericBaseView<PermissionMainComponentData>{
+class PermissionMainView: GenericBaseView<PermissionMainViewData>{
     
     private lazy var containerView: UIView = {
         let temp = UIView()
@@ -22,7 +22,7 @@ class PermissionMainComponent: GenericBaseView<PermissionMainComponentData>{
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.alignment = .center
         temp.distribution = .fill
-        temp.axis = .vertical
+        temp.axis = .vertical 
         temp.spacing = 10
         return temp
     }()
@@ -48,6 +48,12 @@ class PermissionMainComponent: GenericBaseView<PermissionMainComponentData>{
 
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
+        addUserInterfaceComponents()
+    }
+    
+    override func setupViewConfigurations() {
+        super.setupViewConfigurations()
+        setupContainerViewLayers() 
     }
     
     private func addUserInterfaceComponents(){
@@ -60,13 +66,16 @@ class PermissionMainComponent: GenericBaseView<PermissionMainComponentData>{
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -60),
+            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])
     }
-    
+    private func setupContainerViewLayers(){
+        containerView.layer.cornerRadius = 10
+        containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
     override func loadDataView() {
         super.loadDataView()
         guard let data = returnData() else { return }
