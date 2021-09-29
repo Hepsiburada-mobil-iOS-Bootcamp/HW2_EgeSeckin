@@ -11,6 +11,8 @@
 		562651462703282B00EE14A2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562651452703282B00EE14A2 /* UIView+Extensions.swift */; };
 		5626514927035DFA00EE14A2 /* ActionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626514827035DFA00EE14A2 /* ActionModule.swift */; };
 		5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626514A27035E3400EE14A2 /* ActionModuleData.swift */; };
+		568FAA282704867B00D49F01 /* LabelPackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA272704867B00D49F01 /* LabelPackComponent.swift */; };
+		568FAA2A2704869300D49F01 /* LabelPackComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FAA292704869300D49F01 /* LabelPackComponentData.swift */; };
 		56D6160627024F8E00FFED80 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160527024F8E00FFED80 /* ActionButton.swift */; };
 		56D6160927025E7200FFED80 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160827025E7200FFED80 /* BaseView.swift */; };
 		56D6160C270262CA00FFED80 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D6160B270262CA00FFED80 /* FontManager.swift */; };
@@ -51,6 +53,8 @@
 		562651452703282B00EE14A2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		5626514827035DFA00EE14A2 /* ActionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModule.swift; sourceTree = "<group>"; };
 		5626514A27035E3400EE14A2 /* ActionModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModuleData.swift; sourceTree = "<group>"; };
+		568FAA272704867B00D49F01 /* LabelPackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponent.swift; sourceTree = "<group>"; };
+		568FAA292704869300D49F01 /* LabelPackComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponentData.swift; sourceTree = "<group>"; };
 		56D6160527024F8E00FFED80 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		56D6160827025E7200FFED80 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		56D6160B270262CA00FFED80 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -123,9 +127,19 @@
 			path = ActionModuleComponent;
 			sourceTree = "<group>";
 		};
+		568FAA262704862D00D49F01 /* LabelPackComponent */ = {
+			isa = PBXGroup;
+			children = (
+				568FAA272704867B00D49F01 /* LabelPackComponent.swift */,
+				568FAA292704869300D49F01 /* LabelPackComponentData.swift */,
+			);
+			path = LabelPackComponent;
+			sourceTree = "<group>";
+		};
 		56D6160327024F6000FFED80 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				568FAA262704862D00D49F01 /* LabelPackComponent */,
 				5626514727035DDA00EE14A2 /* ActionModuleComponent */,
 				56D6160427024F7000FFED80 /* ActionButtonComponent */,
 			);
@@ -350,9 +364,11 @@
 				56F2643027024A4A0038BC04 /* ViewController.swift in Sources */,
 				56F2642C27024A4A0038BC04 /* AppDelegate.swift in Sources */,
 				56D6160927025E7200FFED80 /* BaseView.swift in Sources */,
+				568FAA2A2704869300D49F01 /* LabelPackComponentData.swift in Sources */,
 				5626514B27035E3400EE14A2 /* ActionModuleData.swift in Sources */,
 				56D61615270269EE00FFED80 /* ActionButtonType.swift in Sources */,
 				56F2642E27024A4A0038BC04 /* SceneDelegate.swift in Sources */,
+				568FAA282704867B00D49F01 /* LabelPackComponent.swift in Sources */,
 				562651422703095A00EE14A2 /* GenericBaseView.swift in Sources */,
 				5626514927035DFA00EE14A2 /* ActionModule.swift in Sources */,
 				562651462703282B00EE14A2 /* UIView+Extensions.swift in Sources */,
