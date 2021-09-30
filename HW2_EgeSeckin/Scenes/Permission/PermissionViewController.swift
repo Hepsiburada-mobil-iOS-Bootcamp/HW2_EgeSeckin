@@ -9,18 +9,22 @@ import UIKit
 
 class PermissionViewController: UIViewController {
 
-    
+    private var viewModel: PermissionViewModel!
     private var permissionMainView: PermissionMainView!
     
+    convenience init (viewModel: PermissionViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         addPermissionMainView()
     }
-
+ 
     private func addPermissionMainView() {
-        permissionMainView = PermissionMainView(data: getPermissionViewData())
+        permissionMainView = PermissionMainView(data: viewModel.getPermissionMainViewData())
         permissionMainView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(permissionMainView)

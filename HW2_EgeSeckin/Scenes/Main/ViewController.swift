@@ -56,19 +56,12 @@ class ViewController: UIViewController {
     }
     private func setupActionModuleData(){
         let camera = ActionButtonData(text: "Camera", buttonType: .filled(.smooth)).setActionButtonListener{
-            self.Listener()
+            self.present(PermissionViewBuilder.build(with: .camera), animated: true, completion: nil)
         }
         let photos = ActionButtonData(text: "Photos", buttonType: .filled(.bright)).setActionButtonListener {
-            self.Listener()
+            self.present(PermissionViewBuilder.build(with: .photos), animated: true, completion: nil)
         }
         actionModule.setData(by: ActionModuleData(negativeButtonData: camera, positiveButtonData: photos))
-    }
-    
-    private func Listener(){
-        let permissionViewController = PermissionViewController()
-        present(permissionViewController, animated: true){
-             print("PermissionViewController is presented!")
-        }
     }
 }
 
