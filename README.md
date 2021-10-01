@@ -1,5 +1,5 @@
 # HW2_EgeSeckin
-HW2_EgeSeckin
+
 We build an app that shows the camera and photos permissions. It's made with an programatic coding not with an Storyboard or swiftUI.
 
 Here is the main screen of the app;
