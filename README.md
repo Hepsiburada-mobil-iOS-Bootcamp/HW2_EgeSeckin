@@ -1,6 +1,6 @@
 # HW2_EgeSeckin
 
-We build an app that shows the camera and photos permissions. It's made with an programatic coding not with an Storyboard or swiftUI.
+We build an app that shows the camera and photos permissions. It's made with an programatic coding not with the Storyboard or swiftUI.
 
 Here is the main screen of the app;
 ![Main Screen](MainScreen.png)
