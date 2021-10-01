@@ -5,11 +5,26 @@
 //  Created by Ege Seçkin on 27.09.2021.
 //
 
-import Foundation
 import UIKit
 
-class ActionButton: UIView{ //Creating Action button blueprint
+protocol ActionButtonDelegate: AnyObject{
+    func actionButtonPressed()
+}
+
+class ActionButton: GenericBaseView<ActionButtonData>{ //Creating Action button blueprint
+    weak var delegate: ActionButtonDelegate?
     
+    private lazy var shadowContainer: UIView = { //Button shadow
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false // in order to prevent auto layout
+        temp.layer.shadowColor = UIColor.black.cgColor
+        temp.layer.shadowOffset = CGSize(width: 6, height: 2)
+        temp.layer.shadowRadius = 4
+        temp.layer.shadowOpacity = 0.4
+        temp.layer.cornerRadius = 6
+        return temp
+        
+    }()
     private lazy var containerView: UIView = {
         //container view for the action button
         
@@ -17,30 +32,98 @@ class ActionButton: UIView{ //Creating Action button blueprint
         temp.translatesAutoresizingMaskIntoConstraints = false // in order to prevent auto layout
         temp.layer.cornerRadius = 6 // corner roundness of the button
         temp.clipsToBounds = true
-        temp.backgroundColor = .red
         return temp
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private lazy var infoTitle: UILabel = {
+        
+        let temp = UILabel()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.font = FontManager.bold(14).value
+        temp.text = " "
+        temp.contentMode = .center
+        temp.textAlignment = .center
+        
+        return temp
+    }()
+    
+    override func addMajorViewComponents() {
+        super.addMajorViewComponents()
         addContainerView()
     }
     
-    required init?(coder: NSCoder){
-        fatalError("init(coder:) has not been implemented")
+    override func setupViewConfigurations() {
+        super.setupViewConfigurations()
+        addTapGesture()
     }
     
     private func addContainerView(){
-        addSubview(containerView)
+        addSubview(shadowContainer)
+        shadowContainer.addSubview(containerView)
+        containerView.addSubview(infoTitle)
         
         NSLayoutConstraint.activate([
+            
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shadowContainer.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
         
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerView.topAnchor.constraint(equalTo: topAnchor),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: shadowContainer.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: shadowContainer.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainer.bottomAnchor),
+            
+            infoTitle.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            infoTitle.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
         
         ]) //active constraints in an array
     }
     
+    override func loadDataView() {
+        super.loadDataView()
+        guard let data = returnData() else { return }
+        infoTitle.text = data.text
+        
+        switch data.buttonType{
+        case .filled(let theme):
+            containerView.backgroundColor = theme.value
+            infoTitle.textColor = .white
+        case .outlined(let theme):
+            containerView.layer.borderWidth = 1
+            containerView.layer.borderColor = theme.value.cgColor
+            containerView.backgroundColor = .white
+            infoTitle.textColor = theme.value
+        }
+    }
+    
+    private func pressedButtonAction() {
+        guard let data = returnData() else { return }
+        data.actionButtonListener?()
+        
+    }
+}
+
+
+// MARK: - UIGestureRecognizerDelegate
+extension ActionButton: UIGestureRecognizerDelegate {
+    private func addTapGesture(){
+        let tap = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
+        tap.delegate = self
+        addGestureRecognizer(tap)
+    }
+    @objc fileprivate func buttonTapped(_ sender: UITapGestureRecognizer) {
+        isUserInteractionEnabled = false
+        startTappedAnimation{ finish in
+                             if finish {
+                                self.isUserInteractionEnabled = true
+                                self.delegate?.actionButtonPressed()
+                                self.pressedButtonAction()
+                            }
+        }
+    }
+}
+
+fileprivate extension Selector {
+    static let buttonTappedSelector = #selector(ActionButton.buttonTapped)
 }
